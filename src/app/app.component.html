@@ -1,72 +1,68 @@
-<nav class="sidebar close">
-  <header>
-      <div class="image-text">
-          <span class="image">
-              <img src="assets/logo.png" alt="Logo" style="height: 100px; width: auto;">
-          </span>
-
-          <div class="text logo-text">
-              <span class="name">Planify</span>
-              <span class="profession">Organizer</span>
+<div class="main-layout">
+  <nav class="sidebar close">
+      <header>
+          <div class="image-text">
+              <span class="image">
+                  <img src="assets/logo.png" alt="Logo" style="height: 100px; width: auto;">
+              </span>
+              <div class="text logo-text">
+                  <span class="name">Planify</span>
+                  <span class="profession">Organizer</span>
+              </div>
+          </div>
+          <i
+              [class]="isSidebarClosed ? 'bx bx-chevron-right toggle' : 'bx bx-chevron-left toggle'"
+              (click)="toggleSidebar()">
+          </i>
+      </header>
+      <div class="menu-bar">
+          <div class="menu">
+              <ul class="menu-links">
+                  <li class="nav-link">
+                      <a href="#">
+                          <i class='bx bx-home-alt icon' style="font-size: 24px;"></i>
+                          <span class="text nav-text">Home</span>
+                      </a>
+                  </li>
+                  <li class="nav-link">
+                      <a href="#">
+                          <i class='bx bx-calendar icon' style="font-size: 24px;"></i>
+                          <span class="text nav-text">Calendar</span>
+                      </a>
+                  </li>
+                  <li class="nav-link">
+                      <a href="#">
+                          <i class='bx bx-dollar icon' style="font-size: 24px;"></i>
+                          <span class="text nav-text">Finance</span>
+                      </a>
+                  </li>
+                  <li class="nav-link">
+                      <a href="#">
+                          <i class='bx bx-store icon' style="font-size: 24px;"></i>
+                          <span class="text nav-text">Marketplace</span>
+                      </a>
+                  </li>
+              </ul>
           </div>
       </div>
+  </nav>
 
-      <i
-          [class]="isSidebarClosed ? 'bx bx-chevron-right toggle' : 'bx bx-chevron-left toggle'"
-          (click)="toggleSidebar()">
-      </i>
-  </header>
-
-  <div class="menu-bar">
-      <div class="menu">
-          <ul class="menu-links">
-              <li class="nav-link">
-                  <a href="#">
-                      <i class='bx bx-home-alt icon' style="font-size: 24px;"></i>
-                      <span class="text nav-text">Home</span>
-                  </a>
-              </li>
-
-              <li class="nav-link">
-                  <a href="#">
-                      <i class='bx bx-calendar icon' style="font-size: 24px;"></i>
-                      <span class="text nav-text">Calendar</span>
-                  </a>
-              </li>
-
-              <li class="nav-link">
-                  <a href="#">
-                      <i class='bx bx-dollar icon' style="font-size: 24px;"></i>
-                      <span class="text nav-text">Finance</span>
-                  </a>
-              </li>
-
-              <li class="nav-link">
-                  <a href="#">
-                      <i class='bx bx-store icon' style="font-size: 24px;"></i>
-                      <span class="text nav-text">Marketplace</span>
-                  </a>
-              </li>
-          </ul>
+  <section class="content">
+    <div class="profile-container">
+      <div class="profile-bubble" (click)="toggleDropdown()">
+          <i class="bx bx-user"></i>
       </div>
-  </div>
-</nav>
-
-<section class="home">
-  <div class="profile-container">
-    <div class="profile-bubble" (click)="toggleDropdown()">
-        <i class="bx bx-user"></i>
+      <i class="bx bx-chevron-down profile-arrow" (click)="toggleDropdown()"></i>
     </div>
-    <i class="bx bx-chevron-down profile-arrow" (click)="toggleDropdown()"></i>
-  </div>
-  
-  <div class="dropdown-menu" [class.active]="isDropdownOpen">
-    <ul>
-        <li (click)="connect()">Connect</li>
-        <li (click)="createAccount()">Create an Account</li>
-        <li (click)="manageAccount()">Manage Account</li>
-    </ul>
-  </div>
+    
+    <div class="dropdown-menu" [class.active]="isDropdownOpen">
+      <ul>
+          <li (click)="connect()">Connect</li>
+          <li (click)="createAccount()">Create an Account</li>
+          <li (click)="manageAccount()">Manage Account</li>
+      </ul>
+    </div>
 
-  <router-outlet></router-outlet>
-</section>
+      <router-outlet></router-outlet>
+  </section>
+</div>
