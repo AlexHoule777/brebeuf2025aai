@@ -1,10 +1,26 @@
-<div class="finances" style="background-color : #000000">
+<div class="finances">
 
 <h1>Finances</h1>
-<div style="width: 200px; margin: 20px auto;">
   <app-monthly-purchases></app-monthly-purchases>
-</div>
 
-<button>Add Purchase</button>
+<button (click)="toggleModal()">Add Purchase</button>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen" @modalAnimation>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add New Purchase</h2>
+      <button class="close-button" (click)="toggleModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <!-- Add your form content here -->
+      <p>Modal content goes here...</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="toggleModal()">Close</button>
+      <button>Save</button>
+    </div>
+  </div>
+</div>
 
 </div>

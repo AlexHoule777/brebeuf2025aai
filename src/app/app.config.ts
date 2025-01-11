@@ -1,8 +1,15 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, Routes } from '@angular/router';
+import { MonthlyPurchasesComponent } from './components/monthly-purchases/monthly-purchases.component';
 
-import { routes } from './app.routes';
+const routes: Routes = [
+  { path: '', component: MonthlyPurchasesComponent },
+  // Add other routes here
+];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideRouter(routes)
+    // ... other providers
+  ]
 };
